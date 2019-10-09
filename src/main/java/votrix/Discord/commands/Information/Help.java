@@ -9,6 +9,7 @@ import votrix.Discord.commands.Miscellaneous.Suggest;
 import votrix.Discord.commands.Moderation.*;
 import votrix.Discord.commands.Settings.SetPrefix;
 import votrix.Discord.utils.Data;
+
 import java.awt.*;
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +22,6 @@ public class Help extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
 
         if(args[0].equalsIgnoreCase(data.getPrefix() + "help")){
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if(args.length < 2){
 
                 RoleAdd addrole = new RoleAdd();
@@ -45,6 +45,7 @@ public class Help extends ListenerAdapter {
 
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(2, TimeUnit.MINUTES);
+                    event.getMessage().delete().queueAfter(2, TimeUnit.MINUTES);
                     eb.clear();
                 });
 
@@ -58,6 +59,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 }
@@ -70,6 +72,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("clear")){
@@ -80,6 +83,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("cleverbot")){
@@ -91,6 +95,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("kick")){
@@ -102,6 +107,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("mute")){
@@ -113,6 +119,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("screenshare")){
@@ -124,6 +131,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("setprefix")){
@@ -135,6 +143,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("softban")){
@@ -146,6 +155,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("suggest")){
@@ -157,6 +167,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("tempmute")){
@@ -168,6 +179,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if(args[1].equalsIgnoreCase("unmute")){
@@ -179,6 +191,7 @@ public class Help extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 }
