@@ -5,7 +5,8 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.exceptions.RateLimitedException;
-import votrix.Discord.listeners.Ready;
+import votrix.Discord.commands.Fun.CleverBot;
+import votrix.Discord.listeners.*;
 
 import javax.security.auth.login.LoginException;
 import java.util.logging.Level;
@@ -25,7 +26,16 @@ public class Votrix {
         votrix.setStatus(OnlineStatus.DO_NOT_DISTURB);
 
         votrix.addEventListeners(
-                new Ready()
+
+                //Fun
+                new CleverBot(),
+
+                //Misc
+                new Ready(),
+                new AltRejoin(),
+                new GuildMemberJoin(),
+                new GuildMemberLeave(),
+                new SuggestionReactAdd()
         );
 
         votrix.build();
