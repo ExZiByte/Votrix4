@@ -16,8 +16,8 @@ public class Votrix {
 
     public static void main(String[] args) throws LoginException, InterruptedException, RateLimitedException{
         //Disable MongoDB Java Driver Logs Console Spam
-        Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
-        mongoLogger.setLevel(Level.OFF);
+        //Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
+        //mongoLogger.setLevel(Level.OFF);
 
         //Build JDA Bot Instance
         final JDABuilder votrix = new JDABuilder(AccountType.BOT).setToken(System.getenv("VOTRIXTOKEN"));
