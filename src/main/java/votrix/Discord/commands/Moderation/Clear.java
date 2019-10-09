@@ -23,7 +23,6 @@ public class Clear extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
         EmbedBuilder success = new EmbedBuilder();
         if (args[0].equalsIgnoreCase(data.getPrefix() + "clear")) {
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 if (args.length < 2) {
                     eb.setDescription("You didn't specify enough arguments");
@@ -33,6 +32,7 @@ public class Clear extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(15, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if (args.length == 2) {
@@ -46,6 +46,7 @@ public class Clear extends ListenerAdapter {
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                 message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                                 eb.clear();
                             });
                         } else if (messageCount > 100) {
@@ -56,6 +57,7 @@ public class Clear extends ListenerAdapter {
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                 message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                                 eb.clear();
                             });
                         } else {
@@ -74,6 +76,7 @@ public class Clear extends ListenerAdapter {
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                 message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                                 data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                                     success.clear();
                                 });
@@ -88,6 +91,7 @@ public class Clear extends ListenerAdapter {
 
                         event.getChannel().sendMessage(eb.build()).queue((message) -> {
                             message.delete().queueAfter(15, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                             eb.clear();
                         });
                     }
@@ -101,6 +105,7 @@ public class Clear extends ListenerAdapter {
                 eb.setTimestamp(Instant.now());
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(15, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                     eb.clear();
                 });
             }

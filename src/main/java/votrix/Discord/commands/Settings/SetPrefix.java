@@ -19,7 +19,6 @@ public class SetPrefix extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
         EmbedBuilder success = new EmbedBuilder();
         if(args[0].equalsIgnoreCase(data.getPrefix() + "setprefix")) {
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 data.setPrefix(args[1]);
                 eb.setDescription("Successfully set the prefix to `" + args[1] + "`");
@@ -33,6 +32,8 @@ public class SetPrefix extends ListenerAdapter {
                 success.setTimestamp(Instant.now());
 
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
+                    message.delete().queueAfter(15, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                     eb.clear();
                     data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                         success.clear();

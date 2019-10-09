@@ -24,7 +24,6 @@ public class Tempmute extends ListenerAdapter {
         Embeds embeds = new Embeds();
         EmbedBuilder eb = new EmbedBuilder();
         if (args[0].equalsIgnoreCase(data.getPrefix() + "tempmute")) {
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 if (args.length < 2) {
                     eb.setDescription("You didn't specify enough arguments. Please refer to " + data.getPrefix() + "`tempmute help` for more information");
@@ -34,6 +33,7 @@ public class Tempmute extends ListenerAdapter {
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         eb.clear();
                         message.delete().queueAfter(20, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                     });
                 } else if (args.length < 3) {
                     if (args[1].equalsIgnoreCase("help")) {
@@ -44,6 +44,7 @@ public class Tempmute extends ListenerAdapter {
                         event.getChannel().sendMessage(eb.build()).queue((message) -> {
                             eb.clear();
                             message.delete().queueAfter(20, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                         });
                     } else {
                         eb.setDescription("You didn't specify enough arguments. Please refer to " + data.getPrefix() + "`tempmute help` for more information");
@@ -53,6 +54,7 @@ public class Tempmute extends ListenerAdapter {
                         event.getChannel().sendMessage(eb.build()).queue((message) -> {
                             eb.clear();
                             message.delete().queueAfter(20, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                         });
                     }
                 } else if (args.length == 3) {
@@ -62,6 +64,7 @@ public class Tempmute extends ListenerAdapter {
                         create.createMutedRole(event);
                         event.getChannel().sendMessage("Your server didn't have a Muted role so I went ahead and created one for you and set the correct required permissions to each text channel").queue((message) -> {
                             message.delete().queueAfter(15, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                         });
                         Time time = new Time();
                         String reason = "No reason specified";
@@ -70,12 +73,14 @@ public class Tempmute extends ListenerAdapter {
                         });
                         event.getChannel().sendMessage(embeds.getTempmuteEmbed(event, args, reason).build()).queue((message1) -> {
                             message1.delete().queueAfter(20, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                         });
                         data.getLogChannel(event).sendMessage(embeds.getMuteSuccessEmbed(event, args, reason).build()).queue();
                     } else {
                         if (mentioned.getRoles().contains(event.getGuild().getRolesByName("Muted", false).get(0))) {
                             event.getChannel().sendMessage(embeds.getAlreadyMutedEmbed(event).build()).queue((message) -> {
                                 message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             });
                         } else {
                             Time time = new Time();
@@ -85,6 +90,7 @@ public class Tempmute extends ListenerAdapter {
                             });
                             event.getChannel().sendMessage(embeds.getTempmuteEmbed(event, args, reason).build()).queue((message1) -> {
                                 message1.delete().queueAfter(20, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             });
                             data.getLogChannel(event).sendMessage(embeds.getMuteSuccessEmbed(event, args, reason).build()).queue();
                         }
@@ -98,6 +104,7 @@ public class Tempmute extends ListenerAdapter {
                             create.createMutedRole(event);
                             event.getChannel().sendMessage("Your server didn't have a Muted role so I went ahead and created one for you and set the correct required permissions to each text channel").queue((message) -> {
                                 message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                             });
                             Time time = new Time();
                             mentioned.getUser().openPrivateChannel().complete().sendMessage(embeds.getMutedEmbed(event, args, reason).build()).queue((message) -> {
@@ -105,12 +112,14 @@ public class Tempmute extends ListenerAdapter {
                             });
                             event.getChannel().sendMessage(embeds.getTempmuteEmbed(event, args, reason).build()).queue((message1) -> {
                                 message1.delete().queueAfter(20, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             });
                             reason = "";
                         } else {
                             if (mentioned.getRoles().contains(event.getGuild().getRolesByName("Muted", false).get(0))) {
                                 event.getChannel().sendMessage(embeds.getAlreadyMutedEmbed(event).build()).queue((message) -> {
                                     message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                 });
                             } else {
                                 Time time = new Time();
@@ -119,6 +128,7 @@ public class Tempmute extends ListenerAdapter {
                                 });
                                 event.getChannel().sendMessage(embeds.getTempmuteEmbed(event, args, reason).build()).queue((message1) -> {
                                     message1.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                 });
                                 reason = "";
                             }
@@ -130,6 +140,7 @@ public class Tempmute extends ListenerAdapter {
                             create.createMutedRole(event);
                             event.getChannel().sendMessage("Your server didn't have a Muted role so I went ahead and created one for you and set the correct required permissions to each text channel").queue((message) -> {
                                 message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                             });
                             Time time = new Time();
                             mentioned.getUser().openPrivateChannel().complete().sendMessage(embeds.getMutedEmbed(event, args, reason).build()).queue((message) -> {
@@ -137,6 +148,7 @@ public class Tempmute extends ListenerAdapter {
                             });
                             event.getChannel().sendMessage(embeds.getTempmuteEmbed(event, args, reason).build()).queue((message1) -> {
                                 message1.delete().queueAfter(20, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             });
                             data.getLogChannel(event).sendMessage(embeds.getMuteSuccessEmbed(event, args, reason).build()).queue();
                             reason = "";
@@ -144,6 +156,7 @@ public class Tempmute extends ListenerAdapter {
                             if (mentioned.getRoles().contains(event.getGuild().getRolesByName("Muted", false).get(0))) {
                                 event.getChannel().sendMessage(embeds.getAlreadyMutedEmbed(event).build()).queue((message) -> {
                                     message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                 });
                             } else {
                                 mentioned.getUser().openPrivateChannel().complete().sendMessage(embeds.getMutedEmbed(event, args, reason).build()).queue((message) -> {
@@ -151,6 +164,7 @@ public class Tempmute extends ListenerAdapter {
                                 });
                                 event.getChannel().sendMessage(embeds.getTempmuteEmbed(event, args, reason).build()).queue((message1) -> {
                                     message1.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                 });
                                 data.getLogChannel(event).sendMessage(embeds.getMuteSuccessEmbed(event, args, reason).build()).queue();
                                 reason = "";

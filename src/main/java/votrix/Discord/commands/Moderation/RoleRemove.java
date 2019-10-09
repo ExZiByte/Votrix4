@@ -23,7 +23,6 @@ public class RoleRemove extends ListenerAdapter {
         EmbedBuilder success = new EmbedBuilder();
         EmbedBuilder grantee = new EmbedBuilder();
         if (args[0].equalsIgnoreCase(data.getPrefix() + "removerole")) {
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 if (args.length < 3) {
                     eb.setDescription("You didn't specify enough arguments. Please refer to " + data.getPrefix() + "help removerole.");
@@ -33,6 +32,7 @@ public class RoleRemove extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(15, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if (args.length > 2 && args.length < 4) {
@@ -58,6 +58,7 @@ public class RoleRemove extends ListenerAdapter {
                         grantee.clear();
                         event.getChannel().sendMessage(eb.build()).queue((message1) -> {
                             message1.delete().queueAfter(15, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                             eb.clear();
                             data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                                 success.clear();
@@ -89,6 +90,7 @@ public class RoleRemove extends ListenerAdapter {
                         grantee.clear();
                         event.getChannel().sendMessage(eb.build()).queue((message1) -> {
                             message1.delete().queueAfter(15, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                             eb.clear();
                             data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                                 success.clear();
@@ -107,6 +109,7 @@ public class RoleRemove extends ListenerAdapter {
 
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(15, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                     eb.clear();
                 });
             }

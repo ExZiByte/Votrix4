@@ -29,7 +29,6 @@ public class Suggest extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
         String[] images = {"https://quiver.nestedvar.dev/assets/huh.jpg", "https://quiver.nestedvar.dev/assets/jackie_chan_huh.jpg", "https://quiver.nestedvar.dev/assets/wat.png", "https://quiver.nestedvar.dev/assets/wat_magik.png"};
         if (args[0].equalsIgnoreCase(data.getPrefix() + "suggest") || args[0].equalsIgnoreCase(data.getPrefix() + "suggestion")) {
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (args.length < 2) {
                 Random rand = new Random();
                 int image = rand.nextInt(images.length);
@@ -40,6 +39,7 @@ public class Suggest extends ListenerAdapter {
 
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(30, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
                     eb.clear();
                 });
             } else if (args.length > 1) {
@@ -89,6 +89,7 @@ public class Suggest extends ListenerAdapter {
 
         event.getChannel().sendMessage(eb.build()).queue((message) -> {
             message.delete().queueAfter(20, TimeUnit.SECONDS);
+            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             eb.clear();
         });
     }

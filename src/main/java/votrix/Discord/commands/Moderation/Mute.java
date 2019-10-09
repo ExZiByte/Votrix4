@@ -33,7 +33,6 @@ public class Mute extends ListenerAdapter {
         EmbedBuilder success = new EmbedBuilder();
 
         if (args[0].equalsIgnoreCase(data.getPrefix() + "mute")) {
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 if (args.length < 2) {
                     eb.setDescription("You didn't specify enough arguments \n" + data.getPrefix() + "mute @<member>");
@@ -43,6 +42,7 @@ public class Mute extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(15, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if (args.length < 3) {
@@ -64,7 +64,7 @@ public class Mute extends ListenerAdapter {
 
                         // Build Information Embed to be sent to server channel
                         eb.setDescription("You've muted: " + mentioned.getAsMention() + "\n\nReason:\n```\nNo reason specified\n```");
-                        eb.setColor(0x4fff45);
+                        eb.setColor(new Color(data.getColor()));
                         eb.setFooter(event.getJDA().getSelfUser().getName() + " Mute",
                                 data.getSelfAvatar(event));
                         eb.setTimestamp(Instant.now());
@@ -81,6 +81,7 @@ public class Mute extends ListenerAdapter {
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                 message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                 eb.clear();
                                 data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                                     success.clear();
@@ -110,7 +111,7 @@ public class Mute extends ListenerAdapter {
                             // Build Information Embed to be to server channel
                             eb.setDescription(
                                     "You've muted: " + mentioned.getAsMention() + "\n\nReason:\n```\nNo reason specified\n```");
-                            eb.setColor(0x4fff45);
+                            eb.setColor(new Color(data.getColor()));
                             eb.setFooter(event.getJDA().getSelfUser().getName() + " Mute",
                                     data.getSelfAvatar(event));
                             eb.setTimestamp(Instant.now());
@@ -126,6 +127,7 @@ public class Mute extends ListenerAdapter {
 
                                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                     message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                     eb.clear();
                                     data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                                         success.clear();
@@ -166,7 +168,7 @@ public class Mute extends ListenerAdapter {
 
                             // Build Information Embed to be sent to server channel
                             eb.setDescription("You've muted: " + mentioned.getAsMention() + "\n\nReason:\n```\n" + reason + "\n```");
-                            eb.setColor(0x4fff45);
+                            eb.setColor(new Color(data.getColor()));
                             eb.setFooter(event.getJDA().getSelfUser().getName() + " Mute",
                                     data.getSelfAvatar(event));
                             eb.setTimestamp(Instant.now());
@@ -177,6 +179,7 @@ public class Mute extends ListenerAdapter {
                                 muted.clear();
                                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                     message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                     eb.clear();
                                 });
                             });
@@ -203,7 +206,7 @@ public class Mute extends ListenerAdapter {
                                 // Build Information Embed to be to server channel
                                 eb.setDescription(
                                         "You've muted: " + mentioned.getAsMention() + "\n\nReason:\n```\n" + reason + "\n```");
-                                eb.setColor(0x4fff45);
+                                eb.setColor(new Color(data.getColor()));
                                 eb.setFooter(event.getJDA().getSelfUser().getName() + " Mute",
                                         data.getSelfAvatar(event));
                                 eb.setTimestamp(Instant.now());
@@ -215,6 +218,7 @@ public class Mute extends ListenerAdapter {
 
                                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                         message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                        event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                         eb.clear();
                                     });
                                 });
@@ -227,6 +231,7 @@ public class Mute extends ListenerAdapter {
 
                                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                     message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                     eb.clear();
                                 });
                             }
@@ -252,7 +257,7 @@ public class Mute extends ListenerAdapter {
 
                         // Build Information Embed to be sent to server channel
                         eb.setDescription("You've muted: " + mentioned.getAsMention() + "\n\nReason:\n```\n" + reason + "\n```");
-                        eb.setColor(0x4fff45);
+                        eb.setColor(new Color(data.getColor()));
                         eb.setFooter(event.getJDA().getSelfUser().getName() + " Mute",
                                 data.getSelfAvatar(event));
                         eb.setTimestamp(Instant.now());
@@ -269,6 +274,7 @@ public class Mute extends ListenerAdapter {
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                 message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                 eb.clear();
                                 data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                                     success.clear();
@@ -298,7 +304,7 @@ public class Mute extends ListenerAdapter {
                             // Build Information Embed to be to server channel
                             eb.setDescription(
                                     "You've muted: " + mentioned.getAsMention() + "\n\nReason:\n```\n" + reason + "\n```");
-                            eb.setColor(0x4fff45);
+                            eb.setColor(new Color(data.getColor()));
                             eb.setFooter(event.getJDA().getSelfUser().getName() + " Mute",
                                     data.getSelfAvatar(event));
                             eb.setTimestamp(Instant.now());
@@ -315,6 +321,7 @@ public class Mute extends ListenerAdapter {
 
                                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                     message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                     eb.clear();
                                     data.getLogChannel(event).sendMessage(success.build()).queue((message2) -> {
                                         success.clear();
@@ -330,6 +337,7 @@ public class Mute extends ListenerAdapter {
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
                                 message.delete().queueAfter(20, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                                 eb.clear();
                             });
                         }
@@ -343,6 +351,7 @@ public class Mute extends ListenerAdapter {
                 eb.setTimestamp(Instant.now());
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(15, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                     eb.clear();
                 });
             }

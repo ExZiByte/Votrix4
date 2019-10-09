@@ -21,7 +21,6 @@ public class Kick extends ListenerAdapter {
         EmbedBuilder success = new EmbedBuilder();
         EmbedBuilder kicked = new EmbedBuilder();
         if(args[0].equalsIgnoreCase(data.getPrefix() + "kick") || args[0].equalsIgnoreCase("***" + data.getPrefix() + "yeet***")){
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if(rc.isOwner(event) || rc.isDeveloper(event)){
                 if(args.length < 2){
                     eb.setDescription("You didn't specify enough arguments");
@@ -31,6 +30,7 @@ public class Kick extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(15, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 }else if (args.length < 3) {
@@ -55,6 +55,7 @@ public class Kick extends ListenerAdapter {
 
                         event.getChannel().sendMessage(eb.build()).queue((message) -> {
                             message.delete().queueAfter(20, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             eb.clear();
                             event.getGuild().kick(mentioned, "No reason specified").queue();
                         });
@@ -82,6 +83,7 @@ public class Kick extends ListenerAdapter {
 
                         event.getChannel().sendMessage(eb.build()).queue((message) -> {
                             message.delete().queueAfter(20, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             eb.clear();
                             event.getGuild().kick(mentioned, reason).queue();
                         });
@@ -96,6 +98,7 @@ public class Kick extends ListenerAdapter {
                 eb.setTimestamp(Instant.now());
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(15, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                     eb.clear();
                 });
             }

@@ -17,7 +17,6 @@ public class Screenshare extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
         EmbedBuilder success = new EmbedBuilder();
         if(args[0].equalsIgnoreCase(data.getPrefix() + "screenshare") || args[0].equalsIgnoreCase(data.getPrefix() + "ss")){
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if(!event.getMember().getVoiceState().inVoiceChannel()){
                 eb.setDescription(event.getMember().getAsMention() + " you'll need to join a voice channel before using this command");
                 eb.setColor(new Color(data.getColor()));
@@ -26,9 +25,11 @@ public class Screenshare extends ListenerAdapter {
 
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(10, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(10, TimeUnit.SECONDS);
                     eb.clear();
                 });
             } else {
+                event.getMessage().delete().queueAfter(1, TimeUnit.MINUTES);
                 // Screen share link https://www.discordapp.com/channels/{guildid}/{channelid}
                 eb.setDescription(event.getMember().getAsMention() + " created a screenshare link for " + event.getMember().getVoiceState().getChannel().getName() + "\n\n[Screenshare Link](https://www.discordapp.com/channels/578937882023034901/" + event.getMember().getVoiceState().getChannel().getId() + " \"Click to join the screenshare for the voice channel " + event.getMember().getVoiceState().getChannel().getName() +"\")");
                 eb.setColor(new Color(data.getColor()));

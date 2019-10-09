@@ -23,7 +23,6 @@ public class Ban extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
         EmbedBuilder banned = new EmbedBuilder();
         if (args[0].equalsIgnoreCase(data.getPrefix() + "ban")) {
-            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 if (args.length < 2) {
                     eb.setDescription("You didn't specify enough arguments");
@@ -33,6 +32,7 @@ public class Ban extends ListenerAdapter {
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(15, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                         eb.clear();
                     });
                 } else if (args.length < 3) {
@@ -57,6 +57,7 @@ public class Ban extends ListenerAdapter {
 
                         event.getChannel().sendMessage(eb.build()).queue((message) -> {
                             message.delete().queueAfter(20, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             eb.clear();
                             event.getGuild().ban(mentioned, 7, "No Reason Specified").queue();
                         });
@@ -84,6 +85,7 @@ public class Ban extends ListenerAdapter {
 
                         event.getChannel().sendMessage(eb.build()).queue((message) -> {
                             message.delete().queueAfter(20, TimeUnit.SECONDS);
+                            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
                             eb.clear();
                             event.getGuild().ban(mentioned, 7, reason).queue();
                         });
@@ -98,6 +100,7 @@ public class Ban extends ListenerAdapter {
                 eb.setTimestamp(Instant.now());
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
                     message.delete().queueAfter(15, TimeUnit.SECONDS);
+                    event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                     eb.clear();
                 });
             }
