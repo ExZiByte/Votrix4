@@ -8,6 +8,7 @@ import votrix.Discord.utils.RoleCheck;
 
 import java.awt.*;
 import java.time.Instant;
+import java.util.concurrent.TimeUnit;
 
 public class SetPrefix extends ListenerAdapter {
 
@@ -18,6 +19,7 @@ public class SetPrefix extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
         EmbedBuilder success = new EmbedBuilder();
         if(args[0].equalsIgnoreCase(data.getPrefix() + "setprefix")) {
+            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 data.setPrefix(args[1]);
                 eb.setDescription("Successfully set the prefix to `" + args[1] + "`");

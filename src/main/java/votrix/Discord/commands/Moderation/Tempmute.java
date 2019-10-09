@@ -24,7 +24,7 @@ public class Tempmute extends ListenerAdapter {
         Embeds embeds = new Embeds();
         EmbedBuilder eb = new EmbedBuilder();
         if (args[0].equalsIgnoreCase(data.getPrefix() + "tempmute")) {
-            event.getMessage().delete().queue();
+            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 if (args.length < 2) {
                     eb.setDescription("You didn't specify enough arguments. Please refer to " + data.getPrefix() + "`tempmute help` for more information");

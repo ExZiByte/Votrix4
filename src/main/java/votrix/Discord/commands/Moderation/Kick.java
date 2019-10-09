@@ -21,7 +21,7 @@ public class Kick extends ListenerAdapter {
         EmbedBuilder success = new EmbedBuilder();
         EmbedBuilder kicked = new EmbedBuilder();
         if(args[0].equalsIgnoreCase(data.getPrefix() + "kick") || args[0].equalsIgnoreCase("***" + data.getPrefix() + "yeet***")){
-            //event.getMessage().delete().queue();
+            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if(rc.isOwner(event) || rc.isDeveloper(event)){
                 if(args.length < 2){
                     eb.setDescription("You didn't specify enough arguments");

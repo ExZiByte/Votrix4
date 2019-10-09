@@ -23,7 +23,7 @@ public class Clear extends ListenerAdapter {
         EmbedBuilder eb = new EmbedBuilder();
         EmbedBuilder success = new EmbedBuilder();
         if (args[0].equalsIgnoreCase(data.getPrefix() + "clear")) {
-            event.getMessage().delete().queue();
+            event.getMessage().delete().queueAfter(20, TimeUnit.SECONDS);
             if (rc.isOwner(event) || rc.isDeveloper(event)) {
                 if (args.length < 2) {
                     eb.setDescription("You didn't specify enough arguments");
