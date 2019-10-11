@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import votrix.Discord.utils.Data;
 
+import java.awt.*;
 import java.time.Instant;
 import java.util.Random;
 
@@ -19,7 +20,7 @@ public class Hug extends ListenerAdapter {
                 "https://tenor.com/view/cuddle-hugs-otter-gif-12200735", //otters hugging
                 "https://media.giphy.com/media/EvYHHSntaIl5m/giphy.gif", //sully hugging boo
                 "https://tenor.com/view/dog-hug-bff-bestfriend-friend-gif-9512793", //dogs hugging
-                "https://tenor.com/view/dog-hug-bff-bestfriend-friend-gif-9512793", //milk and mocha kawaii hug
+                "https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134", //milk and mocha kawaii hug
                 "https://media.giphy.com/media/kooPUWvhaGe7C/giphy.gif", //bubbles hugging cat
                 "https://media.giphy.com/media/jMGxhWR7rtTNu/giphy.gif", //penguins hugging
                 "https://tenor.com/view/hug-your-cat-day-hug-cat-gif-8723720", //hug your cat day
@@ -40,8 +41,9 @@ public class Hug extends ListenerAdapter {
                     eb.clear();
                 });
             } else if(args.length > 1){
-                Member mentioned = event.getMessage().getMentionedMembers().get(0);
-                eb.setDescription("Hugged " + mentioned.getAsMention());
+                Member mentioned = event.getGuild().getMembersByName(args[1], true).get(0);
+                eb.setDescription(event.getMember().getAsMention() + " hugged " + mentioned.getAsMention());
+                eb.setColor(new Color(data.getColor()));
                 eb.setImage(images[image]);
                 eb.setFooter("Votrix Hug", data.getSelfAvatar(event));
                 eb.setTimestamp(Instant.now());
