@@ -41,7 +41,7 @@ public class Hug extends ListenerAdapter {
                     eb.clear();
                 });
             } else if(args.length > 1){
-                Member mentioned = event.getGuild().getMembersByName(args[1], true).get(0);
+                Member mentioned = event.getMessage().getMentionedMembers().get(0);
                 eb.setDescription("**" + event.getMember().getEffectiveName() + "** hugged **" + mentioned.getEffectiveName() + "**");
                 eb.setColor(new Color(data.getColor()));
                 eb.setImage(images[image]);
