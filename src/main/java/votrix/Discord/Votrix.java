@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.exceptions.RateLimitedException;
 import votrix.Discord.commands.Fun.CleverBot;
+import votrix.Discord.commands.Fun.Hug;
 import votrix.Discord.commands.Fun.Screenshare;
 import votrix.Discord.commands.Information.Help;
 import votrix.Discord.commands.Miscellaneous.Suggest;
@@ -33,6 +34,7 @@ public class Votrix {
         votrix.addEventListeners(
                 //Fun
                 new CleverBot(),
+                new Hug(),
                 new Screenshare(),
 
                 //Information
