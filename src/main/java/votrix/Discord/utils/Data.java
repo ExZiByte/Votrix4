@@ -35,23 +35,18 @@ public class Data {
 
     public static void setPrefix(String prefix) {
         db.connect();
-
         MongoCollection<Document> guild = db.getCollection("Votrix");
         String oldPrefix = guild.find().first().getString("prefix");
-
         Bson filter = new Document("prefix", oldPrefix);
         Bson newPrefix = new Document("prefix", prefix);
         Bson updatePrefix = new Document("$set", newPrefix);
         guild.updateOne(filter, updatePrefix);
-
         db.close();
     }
 
     public static int getColor() {
-
         Random obj = new Random();
         int rand_num = obj.nextInt(0xffffff + 1);
-
         return rand_num;
     }
 
