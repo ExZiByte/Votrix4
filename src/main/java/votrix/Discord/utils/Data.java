@@ -9,8 +9,6 @@ import org.bson.conversions.Bson;
 
 import java.util.Random;
 
-import static com.mongodb.client.model.Filters.eq;
-
 public class Data {
 
     static Database db = new Database();

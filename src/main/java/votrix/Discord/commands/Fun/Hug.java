@@ -62,4 +62,28 @@ public class Hug extends ListenerAdapter {
             }
         }
     }
+
+    public String getName() {
+        return "Hug";
+    }
+
+    public String getDescription() {
+        return "Allows to give others a friendly hug or yourself.";
+    }
+
+    public String getShortDescription() {
+        return "Give a friendly hug.";
+    }
+
+    public String getRequiredRoles() {
+        return "Everyone";
+    }
+
+    public String getCommandSyntax() {
+        return "```\n" + Data.getPrefix() + "hug [@member]\n```";
+    }
+
+    public boolean isDisabled() {
+        return false;
+    }
 }
