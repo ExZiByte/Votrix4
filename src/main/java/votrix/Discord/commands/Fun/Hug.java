@@ -72,7 +72,7 @@ public class Hug extends ListenerAdapter {
     }
 
     public String getShortDescription() {
-        return "Give a friendly hug.";
+        return "Give a friendly hug";
     }
 
     public String getRequiredRoles() {
