@@ -17,16 +17,24 @@ public class Hug extends ListenerAdapter {
         Data data = new Data();
         EmbedBuilder eb = new EmbedBuilder();
         String[] images = {
-                "https://tenor.com/view/cuddle-hugs-otter-gif-12200735", //otters hugging
-                "https://media.giphy.com/media/EvYHHSntaIl5m/giphy.gif", //sully hugging boo
-                "https://tenor.com/view/dog-hug-bff-bestfriend-friend-gif-9512793", //dogs hugging
-                "https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134", //milk and mocha kawaii hug
-                "https://media.giphy.com/media/kooPUWvhaGe7C/giphy.gif", //bubbles hugging cat
-                "https://media.giphy.com/media/jMGxhWR7rtTNu/giphy.gif", //penguins hugging
-                "https://tenor.com/view/hug-your-cat-day-hug-cat-gif-8723720", //hug your cat day
-                "https://tenor.com/view/animated-love-hug-gif-8330882", //raccoon hug
-                "https://tenor.com/view/polar-bears-hug-hugging-cuddle-comfortable-gif-3904776", //polar bear hugs
-                "https://tenor.com/view/virtual-hug-random-hug-gif-7939558" //random hug
+                "https://i.imgur.com/R8TWjFy.gif",
+                "https://i.imgur.com/sYoYQ9q.gif",
+                "https://i.imgur.com/ePMOR3R.gif",
+                "https://i.imgur.com/iHNej6L.gif",
+                "https://i.imgur.com/VRcglCR.gif",
+                "https://i.imgur.com/aBpkK7x.gif",
+                "https://i.imgur.com/xQudAlA.gif",
+                "https://i.imgur.com/3trtPPo.gif",
+                "https://i.imgur.com/TikwgIF.gif",
+                "https://i.imgur.com/Cd4E0FF.gif",
+                "https://i.imgur.com/44rFDFH.gif",
+                "https://i.imgur.com/bNNXdrk.gif",
+                "https://i.imgur.com/e2uA9C1.gif",
+                "https://i.imgur.com/IJx0HdC.gif",
+                "https://i.imgur.com/3nk9hka.gif",
+                "https://i.imgur.com/VYJUSJL.gif",
+                "https://i.imgur.com/SpHj56t.gif",
+                "https://i.imgur.com/BYqstBh.gif"
         };
         if(args[0].equalsIgnoreCase(data.getPrefix() + "hug")){
             Random random = new Random();
