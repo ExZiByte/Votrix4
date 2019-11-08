@@ -5,13 +5,11 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.exceptions.RateLimitedException;
-import votrix.Discord.commands.Fun.CleverBot;
-import votrix.Discord.commands.Fun.Hug;
-import votrix.Discord.commands.Fun.Screenshare;
-import votrix.Discord.commands.Information.Help;
-import votrix.Discord.commands.Miscellaneous.Suggest;
+import votrix.Discord.commands.Fun.*;
+import votrix.Discord.commands.Information.*;
+import votrix.Discord.commands.Miscellaneous.*;
 import votrix.Discord.commands.Moderation.*;
-import votrix.Discord.commands.Settings.SetPrefix;
+import votrix.Discord.commands.Settings.*;
 import votrix.Discord.listeners.*;
 
 import javax.security.auth.login.LoginException;
@@ -35,6 +33,7 @@ public class Votrix {
                 //Fun
                 new CleverBot(),
                 new Hug(),
+                new Ree(),
                 new Screenshare(),
 
                 //Information
