@@ -26,7 +26,7 @@ public class Ree extends ListenerAdapter {
             Random random = new Random();
             int image = random.nextInt(images.length);
             if(args.length < 2){
-                eb.setDescription(event.getMember().getEffectiveName() + "ree'd.");
+                eb.setDescription("**" + event.getMember().getEffectiveName() + "**" + " ree'd.");
                 eb.setImage(images[image]);
                 eb.setFooter("Votrix Self Ree", data.getSelfAvatar(event));
                 eb.setTimestamp(Instant.now());
