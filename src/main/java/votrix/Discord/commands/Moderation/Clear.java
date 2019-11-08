@@ -41,7 +41,7 @@ public class Clear extends ListenerAdapter {
                         if (messageCount < 2) {
                             eb.setDescription("Too few messages to delete. Minimum amount of messages I can delete is 2");
                             eb.setColor(0xff5555);
-                            eb.setFooter(event.getJDA().getSelfUser().getName() + ", Too Few Messages to Delete", data.getSelfAvatar(event));
+                            eb.setFooter(event.getJDA().getSelfUser().getName() + " Too Few Messages to Delete", data.getSelfAvatar(event));
                             eb.setTimestamp(Instant.now());
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
@@ -52,7 +52,7 @@ public class Clear extends ListenerAdapter {
                         } else if (messageCount > 100) {
                             eb.setDescription("Too many messages to delete. Maximum amount of messages I can delete at a time is 100");
                             eb.setColor(0xff5555);
-                            eb.setFooter(event.getJDA().getSelfUser().getName() + ", Too Many Messages to Delete", event.getJDA().getSelfUser().getEffectiveAvatarUrl());
+                            eb.setFooter(event.getJDA().getSelfUser().getName() + " Too Many Messages to Delete", event.getJDA().getSelfUser().getEffectiveAvatarUrl());
                             eb.setTimestamp(Instant.now());
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
@@ -66,12 +66,12 @@ public class Clear extends ListenerAdapter {
 
                             eb.setDescription("Deleted " + messageCount.toString() + " messages from " + event.getChannel().getAsMention());
                             eb.setColor(0x4fff45);
-                            eb.setFooter(event.getJDA().getSelfUser().getName() + ", Clear Messages", event.getJDA().getSelfUser().getEffectiveAvatarUrl());
+                            eb.setFooter(event.getJDA().getSelfUser().getName() + " Clear Messages", event.getJDA().getSelfUser().getEffectiveAvatarUrl());
                             eb.setTimestamp(Instant.now());
 
                             success.setDescription(event.getMember().getAsMention() + " deleted " + messageCount.toString() + " messages from: " + event.getChannel().getAsMention());
                             success.setColor(new Color(data.getColor()));
-                            success.setFooter(event.getJDA().getSelfUser().getName() + ", Clear Messages", event.getJDA().getSelfUser().getEffectiveAvatarUrl());
+                            success.setFooter(event.getJDA().getSelfUser().getName() + " Clear Messages", event.getJDA().getSelfUser().getEffectiveAvatarUrl());
                             success.setTimestamp(Instant.now());
 
                             event.getChannel().sendMessage(eb.build()).queue((message) -> {
