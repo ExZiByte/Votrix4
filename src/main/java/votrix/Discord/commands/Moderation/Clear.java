@@ -125,7 +125,7 @@ public class Clear extends ListenerAdapter {
     }
 
     public String getRequiredRoles() {
-        return "Owner, Developer, Administrator, Moderator";
+        return "Owner, Developer";
     }
 
     public String getCommandSyntax() {

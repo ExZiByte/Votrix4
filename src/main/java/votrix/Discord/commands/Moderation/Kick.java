@@ -118,7 +118,7 @@ public class Kick extends ListenerAdapter {
     }
 
     public String getRequiredRoles() {
-        return "Owner, Developer, Administrator";
+        return "Owner, Developer";
     }
 
     public String getCommandSyntax() {
