@@ -14,7 +14,7 @@ public class Ready extends ListenerAdapter {
 
     public void onReady(ReadyEvent event){
     event.getJDA().getPresence().setStatus(OnlineStatus.ONLINE);
-    Activity[] games = { Activity.playing("with Somato Setchup"), Activity.playing("with Biscuits"), Activity.watching("Toe Tucks"), Activity.watching("https://twitch.tv/kylaak_") };
+    Activity[] games = { Activity.playing("with Somato Setchup"), Activity.playing("with Biscuits"), Activity.watching("Toe Tucks") };
     ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         ses.scheduleAtFixedRate(() -> {
         Random random = new Random();
