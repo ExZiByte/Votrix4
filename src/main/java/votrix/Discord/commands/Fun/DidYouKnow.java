@@ -19,9 +19,7 @@ public class DidYouKnow extends ListenerAdapter {
         Facts facts = new Facts();
         EmbedBuilder eb = new EmbedBuilder();
 
-        String[] aliases = { "didyouknow", "dyk" };
-        String command = data.getPrefix() + "args[0]";
-        if (Arrays.stream(aliases).anyMatch(command::equalsIgnoreCase)) {
+        if(args[0].equalsIgnoreCase(data.getPrefix() + "didyouknow")){
             if (args.length < 2) {
                 eb.setDescription("You didn't specify enough arguments");
                 eb.setColor(0xff5555);
