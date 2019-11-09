@@ -34,6 +34,7 @@ public class Votrix {
                 new CleverBot(),
                 new Hug(),
                 new Ree(),
+                new DidYouKnow(),
                 new Screenshare(),
 
                 //Information
