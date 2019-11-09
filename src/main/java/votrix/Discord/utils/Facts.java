@@ -137,7 +137,7 @@ public class Facts {
                 "the revolving door was invented in 1888",
                 "Sir Isaac Newton was 23 when he discovered the law of gravity",
                 "the drinking straw was invented in 1886", "paper money was first used in China",
-                "Scissors were most likely invented ancient Egypt",
+                "scissors were most likely invented ancient Egypt",
                 "all of the cobble stones used to line the streets in New York were originally stones found in the hulls of Belgian ships ballast",
                 "Diet Coke was introduced in 1982", "Shakespeare invented the words assassination and bump",
                 "that in the 17th century the value of pi was known to 35 decimal places (today to 1.2411 trillion)",
