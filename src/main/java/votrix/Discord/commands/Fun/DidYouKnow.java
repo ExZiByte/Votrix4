@@ -31,10 +31,10 @@ public class DidYouKnow extends ListenerAdapter {
                     eb.clear();
                 });
             } else if (args.length < 3) {
-                if (args[1].equalsIgnoreCase("nature")) {
+                if (args[1].equalsIgnoreCase("animals")) {
                     Random random = new Random();
-                    int nature = random.nextInt(facts.getNature().length);
-                    eb.setDescription("`Did you know " + facts.getNature()[nature] + "`");
+                    int animals = random.nextInt(facts.getAnimals().length);
+                    eb.setDescription("`Did you know " + facts.getAnimals()[animals] + "`");
                     eb.setColor(0xff5555);
                     eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
                     eb.setTimestamp(Instant.now());

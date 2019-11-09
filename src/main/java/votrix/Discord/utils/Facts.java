@@ -1,8 +1,8 @@
 package votrix.Discord.utils;
 
 public class Facts {
-    public String[] getNature() {
-    String[] nature = {    
+    public String[] getAnimals() {
+    String[] animals = {    
     "a bear has 42 teeth",
     "an ostrich's eye is bigger than its brain",
     "rabbits like licorice",
@@ -54,7 +54,7 @@ public class Facts {
     "camel's milk doesn't curdle",
     "squirrels can climb trees faster than they can run on the ground",
     };
-    return nature;
+    return animals;
 }
 
     public String[] getFood() {
