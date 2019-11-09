@@ -99,13 +99,6 @@ public class Facts {
     return history;
 }
 
-    public String[] getBrands() {
-    String[] brands = {
-        ""
-    };
-    return brands;
-}
-
     public String[] getMovies() {
     String[] movies = {
         ""
