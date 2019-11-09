@@ -1,7 +1,6 @@
 package votrix.Discord.commands.Fun;
 
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +34,7 @@ public class DidYouKnow extends ListenerAdapter {
                 if (args[1].equalsIgnoreCase("nature")) {
                     Random random = new Random();
                     int nature = random.nextInt(facts.getNature().length);
-                    eb.setDescription("`" + facts.getNature()[nature] + "`");
+                    eb.setDescription("`Did you know " + facts.getNature()[nature] + "`");
                     eb.setColor(0xff5555);
                     eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
                     eb.setTimestamp(Instant.now());
