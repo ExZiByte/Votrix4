@@ -64,13 +64,6 @@ public class Facts {
     return food;
 }
 
-    public String[] getMusic() {
-    String[] music = {
-        ""
-    };
-    return music;
-}
-
     public String[] getGames() {
     String[] games = {
         ""
