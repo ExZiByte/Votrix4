@@ -48,7 +48,7 @@ public class DidYouKnow extends ListenerAdapter {
                     if (args[1].equalsIgnoreCase("food")) {
                         Random random = new Random();
                         int food = random.nextInt(facts.getFood().length);
-                        eb.setDescription("`Did you know " + facts.getAnimals()[food] + "`");
+                        eb.setDescription("`Did you know " + facts.getFood()[food] + "`");
                         eb.setColor(0xff5555);
                         eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
                         eb.setTimestamp(Instant.now());
