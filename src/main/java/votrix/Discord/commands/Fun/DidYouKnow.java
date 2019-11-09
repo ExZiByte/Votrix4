@@ -58,81 +58,81 @@ public class DidYouKnow extends ListenerAdapter {
                             event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
                             eb.clear();
                         });
-                    }
-                } else if (args.length < 3) {
-                    if (args[1].equalsIgnoreCase("space")) {
-                        Random random = new Random();
-                        int space = random.nextInt(facts.getAnimals().length);
-                        eb.setDescription("`Did you know " + facts.getSpace()[space] + "`");
-                        eb.setColor(0xff5555);
-                        eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
-                        eb.setTimestamp(Instant.now());
+                    } else if (args.length < 3) {
+                        if (args[1].equalsIgnoreCase("space")) {
+                            Random random = new Random();
+                            int space = random.nextInt(facts.getAnimals().length);
+                            eb.setDescription("`Did you know " + facts.getSpace()[space] + "`");
+                            eb.setColor(0xff5555);
+                            eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
+                            eb.setTimestamp(Instant.now());
 
-                        event.getChannel().sendMessage(eb.build()).queue((message) -> {
-                            message.delete().queueAfter(15, TimeUnit.SECONDS);
-                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
-                            eb.clear();
-                        });
-                    }
-                } else if (args.length < 3) {
-                    if (args[1].equalsIgnoreCase("countries")) {
-                        Random random = new Random();
-                        int countries = random.nextInt(facts.getCountries().length);
-                        eb.setDescription("`Did you know " + facts.getCountries()[countries] + "`");
-                        eb.setColor(0xff5555);
-                        eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
-                        eb.setTimestamp(Instant.now());
+                            event.getChannel().sendMessage(eb.build()).queue((message) -> {
+                                message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
+                                eb.clear();
+                            });
+                        } else if (args.length < 3) {
+                            if (args[1].equalsIgnoreCase("countries")) {
+                                Random random = new Random();
+                                int countries = random.nextInt(facts.getCountries().length);
+                                eb.setDescription("`Did you know " + facts.getCountries()[countries] + "`");
+                                eb.setColor(0xff5555);
+                                eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
+                                eb.setTimestamp(Instant.now());
 
-                        event.getChannel().sendMessage(eb.build()).queue((message) -> {
-                            message.delete().queueAfter(15, TimeUnit.SECONDS);
-                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
-                            eb.clear();
-                        });
-                    }
-                } else if (args.length < 3) {
-                    if (args[1].equalsIgnoreCase("history")) {
-                        Random random = new Random();
-                        int history = random.nextInt(facts.getHistory().length);
-                        eb.setDescription("`Did you know " + facts.getHistory()[history] + "`");
-                        eb.setColor(0xff5555);
-                        eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
-                        eb.setTimestamp(Instant.now());
+                                event.getChannel().sendMessage(eb.build()).queue((message) -> {
+                                    message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                    event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
+                                    eb.clear();
+                                });
+                            } else if (args.length < 3) {
+                                if (args[1].equalsIgnoreCase("history")) {
+                                    Random random = new Random();
+                                    int history = random.nextInt(facts.getHistory().length);
+                                    eb.setDescription("`Did you know " + facts.getHistory()[history] + "`");
+                                    eb.setColor(0xff5555);
+                                    eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
+                                    eb.setTimestamp(Instant.now());
 
-                        event.getChannel().sendMessage(eb.build()).queue((message) -> {
-                            message.delete().queueAfter(15, TimeUnit.SECONDS);
-                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
-                            eb.clear();
-                        });
-                    }
-                } else if (args.length < 3) {
-                    if (args[1].equalsIgnoreCase("movies")) {
-                        Random random = new Random();
-                        int movies = random.nextInt(facts.getMovies().length);
-                        eb.setDescription("`Did you know " + facts.getMovies()[movies] + "`");
-                        eb.setColor(0xff5555);
-                        eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
-                        eb.setTimestamp(Instant.now());
+                                    event.getChannel().sendMessage(eb.build()).queue((message) -> {
+                                        message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                        event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
+                                        eb.clear();
+                                    });
+                                } else if (args.length < 3) {
+                                    if (args[1].equalsIgnoreCase("movies")) {
+                                        Random random = new Random();
+                                        int movies = random.nextInt(facts.getMovies().length);
+                                        eb.setDescription("`Did you know " + facts.getMovies()[movies] + "`");
+                                        eb.setColor(0xff5555);
+                                        eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
+                                        eb.setTimestamp(Instant.now());
 
-                        event.getChannel().sendMessage(eb.build()).queue((message) -> {
-                            message.delete().queueAfter(15, TimeUnit.SECONDS);
-                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
-                            eb.clear();
-                        });
-                    }
-                } else if (args.length < 3) {
-                    if (args[1].equalsIgnoreCase("sports")) {
-                        Random random = new Random();
-                        int sports = random.nextInt(facts.getSports().length);
-                        eb.setDescription("`Did you know " + facts.getSports()[sports] + "`");
-                        eb.setColor(0xff5555);
-                        eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
-                        eb.setTimestamp(Instant.now());
+                                        event.getChannel().sendMessage(eb.build()).queue((message) -> {
+                                            message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
+                                            eb.clear();
+                                        });
+                                    } else if (args.length < 3) {
+                                        if (args[1].equalsIgnoreCase("sports")) {
+                                            Random random = new Random();
+                                            int sports = random.nextInt(facts.getSports().length);
+                                            eb.setDescription("`Did you know " + facts.getSports()[sports] + "`");
+                                            eb.setColor(0xff5555);
+                                            eb.setFooter("Votrix Did You Know", data.getSelfAvatar(event));
+                                            eb.setTimestamp(Instant.now());
 
-                        event.getChannel().sendMessage(eb.build()).queue((message) -> {
-                            message.delete().queueAfter(15, TimeUnit.SECONDS);
-                            event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
-                            eb.clear();
-                        });
+                                            event.getChannel().sendMessage(eb.build()).queue((message) -> {
+                                                message.delete().queueAfter(15, TimeUnit.SECONDS);
+                                                event.getMessage().delete().queueAfter(15, TimeUnit.SECONDS);
+                                                eb.clear();
+                                            });
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
