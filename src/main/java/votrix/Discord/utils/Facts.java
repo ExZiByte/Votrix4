@@ -153,10 +153,10 @@ public class Facts {
     public String[] getMovies() {
         String[] movies = { "there are 22 stars in the Paramount studios logo",
                 "the movie Pulp Fiction cost $8 million to make with $5 million going towards actor's salaries",
-                "the movie 'Wayne's World' was filmed in two weeks",
-                "the film 'Mary Poppins' was filmed entirely indoors",
+                "the movie Wayne's World was filmed in two weeks",
+                "the film Mary Poppins was filmed entirely indoors",
                 "all of the clocks in the movie Pulp Fiction are fixed to 4:20", "55% of all movies are rated R",
-                "'Babe' was played by over 50 pigs", "the first James Bond movie was called Dr. No",
+                "Babe was played by over 50 pigs", "the first James Bond movie was called Dr. No",
                 "before beginning his movie career Keanu Reeves managed a pasta shop in Toronto Canada",
                 "the 1st full length animated film was released by Disney Studios in 1937 (it was Snow White and the seven dwarfs)" };
         return movies;
