@@ -38,9 +38,10 @@ public class Help extends ListenerAdapter {
                 Hug hug = new Hug();
                 Ree ree = new Ree();
                 DidYouKnow didyouknow = new DidYouKnow();
+                Userinfo userinfo = new Userinfo();
 
                 eb.setTitle("⚙ Help");
-                eb.setDescription("Commands for Votrix!\n\n**General Commands**\n```\n" + data.getPrefix() + "suggest     --  " + suggest.getShortDescription() + "\n```\n**Fun Commands**\n```\n@Votrix msg  --  " + cleverbot.getShortDescription() + "\n" + data.getPrefix() + "screenshare --  " + screenshare.getShortDescription() + "\n" + data.getPrefix() + "hug         --  " + hug.getShortDescription() + "\n" + data.getPrefix() + "ree         --  " + ree.getShortDescription() + "\n" + data.getPrefix() + "didyouknow  --  " + didyouknow.getShortDescription() +"\n```\n**Moderation Commands**\n```\n" + data.getPrefix() + "addrole     --  " + addrole.getShortDescription() + "\n" + data.getPrefix() + "ban         --  " + ban.getShortDescription() + "\n" + data.getPrefix() + "clear       --  " + clear.getShortDescription() + "\n" + data.getPrefix() + "kick        --  " + kick.getShortDescription() + "\n" + data.getPrefix() + "mute        --  " + mute.getShortDescription() + "\n" + data.getPrefix() + "softban     --  " + softban.getShortDescription() + "\n" + data.getPrefix() + "tempmute    --  " + tempmute.getShortDescription() + "\n" + data.getPrefix() + "unmute      --  " + unmute.getShortDescription() + "\n```\n**Setting Commands**\n```\n" + data.getPrefix() + "setprefix   --  " + setprefix.getShortDescription() + "\n```\n\n**For command syntax help do**\n```\n" + data.getPrefix() + "help {command}\n```");
+                eb.setDescription("Commands for Votrix!\n\n**General Commands**\n```\n" + data.getPrefix() + "suggest     --  " + suggest.getShortDescription() + "\n" + data.getPrefix() + "userinfo    --  " + userinfo.getShortDescription() + "\n```\n**Fun Commands**\n```\n@Votrix msg  --  " + cleverbot.getShortDescription() + "\n" + data.getPrefix() + "screenshare --  " + screenshare.getShortDescription() + "\n" + data.getPrefix() + "hug         --  " + hug.getShortDescription() + "\n" + data.getPrefix() + "ree         --  " + ree.getShortDescription() + "\n" + data.getPrefix() + "didyouknow  --  " + didyouknow.getShortDescription() +"\n```\n**Moderation Commands**\n```\n" + data.getPrefix() + "addrole     --  " + addrole.getShortDescription() + "\n" + data.getPrefix() + "ban         --  " + ban.getShortDescription() + "\n" + data.getPrefix() + "clear       --  " + clear.getShortDescription() + "\n" + data.getPrefix() + "kick        --  " + kick.getShortDescription() + "\n" + data.getPrefix() + "mute        --  " + mute.getShortDescription() + "\n" + data.getPrefix() + "softban     --  " + softban.getShortDescription() + "\n" + data.getPrefix() + "tempmute    --  " + tempmute.getShortDescription() + "\n" + data.getPrefix() + "unmute      --  " + unmute.getShortDescription() + "\n```\n**Setting Commands**\n```\n" + data.getPrefix() + "setprefix   --  " + setprefix.getShortDescription() + "\n```\n\n**For command syntax help do**\n```\n" + data.getPrefix() + "help {command}\n```");
                 eb.setColor(new Color(data.getColor()));
                 eb.setTimestamp(Instant.now());
                 eb.setFooter("Votrix Commands Help Menu", data.getSelfAvatar(event));
@@ -227,6 +228,18 @@ public class Help extends ListenerAdapter {
                     eb.setColor(new Color(data.getColor()));
                     eb.setDescription(command.getDescription() + "\n\n **Required Roles:**\n" + command.getRequiredRoles() + "\n\n **Categories:**\n" + command.getCategory() + "\n\n **How to use the hug command:**\n" + command.getCommandSyntax() + "\n**Is Disabled?** \n```\n" + command.isDisabled() + "\n```\n```\n{} | Required\n[] | Optional\n```");
                     eb.setFooter("Votrix Did You Know Command Help", data.getSelfAvatar(event));
+
+                    event.getChannel().sendMessage(eb.build()).queue((message) -> {
+                        message.delete().queueAfter(30, TimeUnit.SECONDS);
+                        event.getMessage().delete().queueAfter(30, TimeUnit.SECONDS);
+                        eb.clear();
+                    });
+                }  else if (args[1].equalsIgnoreCase("userinfo")){
+                    Userinfo command = new Userinfo();
+                    eb.setTitle(command.getName() + " Help");
+                    eb.setColor(new Color(data.getColor()));
+                    eb.setDescription(command.getDescription() + "\n\n **Required Roles:**\n" + command.getRequiredRoles() + "\n\n **How to use the hug command:**\n" + command.getCommandSyntax() + "\n**Is Disabled?** \n```\n" + command.isDisabled() + "\n```\n```\n{} | Required\n[] | Optional\n```");
+                    eb.setFooter("Votrix Userinfo Command Help", data.getSelfAvatar(event));
 
                     event.getChannel().sendMessage(eb.build()).queue((message) -> {
                         message.delete().queueAfter(30, TimeUnit.SECONDS);

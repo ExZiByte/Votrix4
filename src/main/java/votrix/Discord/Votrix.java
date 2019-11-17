@@ -42,6 +42,7 @@ public class Votrix {
 
                 //Miscellaneous
                 new Suggest(),
+                new Userinfo(),
 
                 //Moderation
                 new Ban(),
