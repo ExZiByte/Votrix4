@@ -50,7 +50,7 @@ public class Hug extends ListenerAdapter {
                 });
             } else if(args.length > 1){
                 Member mentioned = event.getMessage().getMentionedMembers().get(0);
-                eb.setAuthor("**" + event.getMember().getEffectiveName() + "** hugged **" + mentioned.getEffectiveName() + "**", data.getSelfAvatar(event));
+                eb.setDescription("**" + event.getMember().getEffectiveName() + "** hugged **" + mentioned.getEffectiveName() + "**");
                 eb.setColor(new Color(data.getColor()));
                 eb.setImage(images[image]);
                 eb.setFooter("Votrix Hug", data.getSelfAvatar(event));

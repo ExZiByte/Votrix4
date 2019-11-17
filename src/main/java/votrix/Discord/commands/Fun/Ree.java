@@ -26,9 +26,9 @@ public class Ree extends ListenerAdapter {
             Random random = new Random();
             int image = random.nextInt(images.length);
             if(args.length < 2){
-                eb.setAuthor("**" + event.getMember().getEffectiveName() + "** ree'd", data.getSelfAvatar(event));
+                eb.setDescription("**" + event.getMember().getEffectiveName() + "**" + " ree'd");
                 eb.setImage(images[image]);
-                eb.setFooter("Votrix Ree", data.getSelfAvatar(event));
+                eb.setFooter("Votrix Self Ree", data.getSelfAvatar(event));
                 eb.setTimestamp(Instant.now());
 
                 event.getChannel().sendMessage(eb.build()).queue((message) -> {
@@ -36,7 +36,7 @@ public class Ree extends ListenerAdapter {
                 });
             } else if(args.length > 1){
                 Member mentioned = event.getMessage().getMentionedMembers().get(0);
-                eb.setAuthor("**" + event.getMember().getEffectiveName() + "** ree'd at **" + mentioned.getEffectiveName() + "**", data.getSelfAvatar(event));
+                eb.setDescription("**" + event.getMember().getEffectiveName() + "** ree'd at **" + mentioned.getEffectiveName() + "**");
                 eb.setColor(new Color(data.getColor()));
                 eb.setImage(images[image]);
                 eb.setFooter("Votrix Ree", data.getSelfAvatar(event));
