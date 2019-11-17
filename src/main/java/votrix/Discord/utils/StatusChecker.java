@@ -10,6 +10,7 @@ public class StatusChecker {
     LocalDateTime ld = LocalDateTime.now();
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("E, dd MMM yyyy");
     String date = ld.format(dtf);
+    Data data = new Data();
 
     public EmbedBuilder online(GuildMessageReceivedEvent event) {
         String roles = "";
@@ -29,7 +30,6 @@ public class StatusChecker {
         EmbedBuilder online = new EmbedBuilder();
         online.setColor(0x85f96d);
         online.setThumbnail(event.getMember().getUser().getAvatarUrl());
-        online.setTitle(":clipboard: User Info");
         online.addField("Username",
                 event.getMember().getEffectiveName() + "#" + event.getMember().getUser().getDiscriminator(), true);
         online.addField("Nickname", event.getMember().getEffectiveName(), true);
@@ -38,7 +38,7 @@ public class StatusChecker {
         online.addField("Joined Guild", event.getMember().getTimeJoined().format(dtf), true);
         online.addField("Joined Discord", event.getMember().getUser().getTimeCreated().format(dtf), true);
         online.addField("Roles", roles, true);
-        online.setFooter("User ID: " + event.getMember().getUser().getId(), null);
+        online.setFooter("Votrix Userinfo", data.getSelfAvatar(event));
         event.getChannel().sendMessage(online.build()).queue();
         return online;
     }
@@ -61,7 +61,6 @@ public class StatusChecker {
         EmbedBuilder away = new EmbedBuilder();
         away.setColor(0x85f96d);
         away.setThumbnail(event.getMember().getUser().getAvatarUrl());
-        away.setTitle(":clipboard: User Info");
         away.addField("Username",
                 event.getMember().getEffectiveName() + "#" + event.getMember().getUser().getDiscriminator(), true);
         away.addField("Nickname", event.getMember().getEffectiveName(), true);
@@ -70,7 +69,7 @@ public class StatusChecker {
         away.addField("Joined Guild", event.getMember().getTimeJoined().format(dtf), true);
         away.addField("Joined Discord", event.getMember().getUser().getTimeCreated().format(dtf), true);
         away.addField("Roles", roles, true);
-        away.setFooter("User ID: " + event.getMember().getUser().getId(), null);
+        away.setFooter("Votrix Userinfo", data.getSelfAvatar(event));
         event.getChannel().sendMessage(away.build()).queue();
         return away;
     }
@@ -93,7 +92,6 @@ public class StatusChecker {
         EmbedBuilder dnd = new EmbedBuilder();
         dnd.setColor(0x85f96d);
         dnd.setThumbnail(event.getMember().getUser().getAvatarUrl());
-        dnd.setTitle(":clipboard: User Info");
         dnd.addField("Username",
                 event.getMember().getEffectiveName() + "#" + event.getMember().getUser().getDiscriminator(), true);
         dnd.addField("Nickname", event.getMember().getEffectiveName(), true);
@@ -103,7 +101,7 @@ public class StatusChecker {
         dnd.addField("Joined Guild", event.getMember().getTimeJoined().format(dtf), true);
         dnd.addField("Joined Discord", event.getMember().getUser().getTimeCreated().format(dtf), true);
         dnd.addField("Roles", roles, true);
-        dnd.setFooter("User ID: " + event.getMember().getUser().getId(), null);
+        dnd.setFooter("Votrix Userinfo", data.getSelfAvatar(event));
         event.getChannel().sendMessage(dnd.build()).queue();
         return dnd;
     }
@@ -126,7 +124,6 @@ public class StatusChecker {
         EmbedBuilder invisible = new EmbedBuilder();
         invisible.setColor(0x85f96d);
         invisible.setThumbnail(event.getMember().getUser().getAvatarUrl());
-        invisible.setTitle(":clipboard: User Info");
         invisible.addField("Username",
                 event.getMember().getEffectiveName() + "#" + event.getMember().getUser().getDiscriminator(), true);
         invisible.addField("Nickname", event.getMember().getEffectiveName(), true);
@@ -136,7 +133,7 @@ public class StatusChecker {
         invisible.addField("Joined Guild", event.getMember().getTimeJoined().format(dtf), true);
         invisible.addField("Joined Discord", event.getMember().getUser().getTimeCreated().format(dtf), true);
         invisible.addField("Roles", roles, true);
-        invisible.setFooter("User ID: " + event.getMember().getUser().getId(), null);
+        invisible.setFooter("Votrix Userinfo", data.getSelfAvatar(event));
         event.getChannel().sendMessage(invisible.build()).queue();
         return invisible;
     }
@@ -159,7 +156,6 @@ public class StatusChecker {
         EmbedBuilder nullstatus = new EmbedBuilder();
         nullstatus.setColor(0x85f96d);
         nullstatus.setThumbnail(event.getMember().getUser().getAvatarUrl());
-        nullstatus.setTitle(":clipboard: User Info");
         nullstatus.addField("Username",
                 event.getMember().getEffectiveName() + "#" + event.getMember().getUser().getDiscriminator(), true);
         nullstatus.addField("Nickname", event.getMember().getEffectiveName(), true);
@@ -168,7 +164,7 @@ public class StatusChecker {
         nullstatus.addField("Joined Guild", event.getMember().getTimeJoined().format(dtf), true);
         nullstatus.addField("Joined Discord", event.getMember().getUser().getTimeCreated().format(dtf), true);
         nullstatus.addField("Roles", roles, true);
-        nullstatus.setFooter("User ID: " + event.getMember().getUser().getId(), null);
+        nullstatus.setFooter("Votrix Userinfo", data.getSelfAvatar(event));
         event.getChannel().sendMessage(nullstatus.build()).queue();
         return nullstatus;
     }
