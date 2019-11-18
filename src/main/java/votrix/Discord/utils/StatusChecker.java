@@ -181,7 +181,7 @@ public class StatusChecker {
 
         String game = "";
         try {
-            game = mentioned.getActivities().get(0).getName();
+            game = mentioned.getActivities().get(0).getType().name();
         } catch (NullPointerException e) {
             game = "Not Playing";
         }
@@ -213,7 +213,7 @@ public class StatusChecker {
 
         String game = "";
         try {
-            game = mentioned.getActivities().get(0).getName();
+            game = mentioned.getActivities().get(0).getType().name();
         } catch (NullPointerException e) {
             game = "Not Playing";
         }
@@ -245,7 +245,7 @@ public class StatusChecker {
 
         String game = "";
         try {
-            game = mentioned.getActivities().get(0).getName();
+            game = mentioned.getActivities().get(0).getType().name();
         } catch (NullPointerException e) {
             game = "Not Playing";
         }
@@ -278,7 +278,7 @@ public class StatusChecker {
 
         String game = "";
         try {
-            game = mentioned.getActivities().get(0).getName();
+            game = mentioned.getActivities().get(0).getType().name();
         } catch (NullPointerException e) {
             game = "Not Playing";
         }
@@ -311,7 +311,7 @@ public class StatusChecker {
 
         String game = "";
         try {
-            game = mentioned.getActivities().get(0).getName();
+            game = mentioned.getActivities().get(0).getType().name();
         } catch (NullPointerException e) {
             game = "Not Playing";
         }
