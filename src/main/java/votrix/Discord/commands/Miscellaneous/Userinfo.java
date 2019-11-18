@@ -1,5 +1,6 @@
 package votrix.Discord.commands.Miscellaneous;
 
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import votrix.Discord.utils.Data;
@@ -25,6 +26,21 @@ public class Userinfo extends ListenerAdapter {
                 statuscheck.invisible(event);
             } else {
                 statuscheck.nullstatus(event);
+            }
+        } else if (args.length > 1) {
+            StatusChecker statuscheck = new StatusChecker();
+            Member mentioned = event.getMessage().getMentionedMembers().get(0);
+            String status = mentioned.getOnlineStatus().toString();
+            if (status == "ONLINE") {
+                statuscheck.onlinementioned(event);
+            } else if (status == "IDLE") {
+                statuscheck.awaymentioned(event);
+            } else if (status == "DO_NOT_DISTURB") {
+                statuscheck.dndmentioned(event);
+            } else if (status == "OFFLINE") {
+                statuscheck.invisiblementioned(event);
+            } else {
+                statuscheck.nullstatusmentioned(event);
             }
         }
     }
