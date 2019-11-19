@@ -46,7 +46,7 @@ public class StatusChecker {
 
     public EmbedBuilder away(GuildMessageReceivedEvent event) {
         String roles = "";
-        roles = event.getMember().getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = event.getMember().getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
@@ -77,7 +77,7 @@ public class StatusChecker {
 
     public EmbedBuilder dnd(GuildMessageReceivedEvent event) {
         String roles = "";
-        roles = event.getMember().getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = event.getMember().getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
@@ -108,8 +108,9 @@ public class StatusChecker {
     }
 
     public EmbedBuilder invisible(GuildMessageReceivedEvent event) {
+        String status = event.getMember().getOnlineStatus().toString();
         String roles = "";
-        roles = event.getMember().getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = event.getMember().getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
@@ -119,6 +120,10 @@ public class StatusChecker {
         try {
             game = event.getMember().getActivities().get(0).getName();
         } catch (NullPointerException e) {
+            game = "Not Playing";
+        }
+
+        if (status == "OFFLINE") {
             game = "Not Playing";
         }
 
@@ -141,7 +146,7 @@ public class StatusChecker {
 
     public EmbedBuilder nullstatus(GuildMessageReceivedEvent event) {
         String roles = "";
-        roles = event.getMember().getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = event.getMember().getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
@@ -205,7 +210,7 @@ public class StatusChecker {
     public EmbedBuilder awaymentioned(GuildMessageReceivedEvent event) {
         Member mentioned = event.getMessage().getMentionedMembers().get(0);
         String roles = "";
-        roles = mentioned.getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = mentioned.getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
@@ -237,7 +242,7 @@ public class StatusChecker {
     public EmbedBuilder dndmentioned(GuildMessageReceivedEvent event) {
         Member mentioned = event.getMessage().getMentionedMembers().get(0);
         String roles = "";
-        roles = mentioned.getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = mentioned.getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
@@ -270,7 +275,7 @@ public class StatusChecker {
     public EmbedBuilder invisiblementioned(GuildMessageReceivedEvent event) {
         Member mentioned = event.getMessage().getMentionedMembers().get(0);
         String roles = "";
-        roles = mentioned.getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = mentioned.getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
@@ -303,7 +308,7 @@ public class StatusChecker {
     public EmbedBuilder nullstatusmentioned(GuildMessageReceivedEvent event) {
         Member mentioned = event.getMessage().getMentionedMembers().get(0);
         String roles = "";
-        roles = mentioned.getRoles().stream().map((rol) -> " , " + rol.getName()).reduce(roles, String::concat);
+        roles = mentioned.getRoles().stream().map((rol) -> ", " + rol.getName()).reduce(roles, String::concat);
         if (roles.isEmpty())
             roles = "None";
         else
