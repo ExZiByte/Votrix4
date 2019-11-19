@@ -121,10 +121,10 @@ public class StatusChecker {
             game = event.getMember().getActivities().get(0).getName();
         } catch (NullPointerException e) {
             game = "Not Playing";
-        }
 
-        if (status == "OFFLINE") {
-            game = "Not Playing";
+            if (status == "OFFLINE") {
+                game = "Not Playing";
+            }
         }
 
         EmbedBuilder invisible = new EmbedBuilder();
